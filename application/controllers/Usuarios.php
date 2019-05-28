@@ -6,6 +6,7 @@ class Usuarios extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->model('adminusuario_model');
         $this->load->library('session');
     }
 

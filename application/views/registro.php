@@ -19,7 +19,7 @@
         <strong><span>Subsecretaría de Transporte</span></strong>
         <h5><span>Registro</span></h5>
     </div>
-    <form id="formUsuario" name="formUsuario" method="post" enctype="multipart/form-data" action="<?php echo base_url(); ?>">
+    <form id="formUsuario" name="formUsuario" method="post" enctype="multipart/form-data" action="<?php echo base_url('Usuarios/agregaUsuario'); ?>">
         <div class="field-wrapper">
             <input type="text" name="rfc" id="rfc" class="form-data" required autofocus>
             <div class="field-placeholder"><span>Ingresa tu RFC</span></div>
