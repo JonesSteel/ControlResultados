@@ -20,7 +20,7 @@ class Usuarios extends CI_Controller {
             $datosUsuarioAlta = array('usuario' => strtoupper($datosUsuario['usuario']),'password' => md5($datosUsuario['password']),'nombre' => strtoupper($datosUsuario['nombre']),'primer_apellido' => strtoupper($datosUsuario['primer_apellido']),'segundo_apellido' => strtoupper($datosUsuario['segundo_apellido']),'rfc' => strtoupper($datosUsuario['rfc']));
             $resGuardado = $this->adminusuario_model->insertaUsuario($datosUsuarioAlta);
             if ($resGuardado == true){
-                $this->load->view('registro', array('mensaje' => 'Se ha guardado el usuario con éxito!'.$datosUsuarioAlta['usuario']));
+                $this->load->view('registro', array('mensaje' => 'Se ha guardado el usuario con éxito.'.$datosUsuarioAlta['usuario']));
             } else {
                 $this->load->view('registro', array('mensaje' => 'Ha ocurrido un error!'.$datosUsuarioAlta['usuario']));
             }
