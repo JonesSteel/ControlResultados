@@ -10,7 +10,7 @@ class Adminusuario_model extends CI_Model {
     function insertaUsuario($datosUsuario) {
         $this->db->trans_start();
         $this->db->insert('usuarios', $datosUsuario);
-        $this->db->trsn_complete();
+        $this->db->trans_complete();
 
         if ($this->db->trans_status() === FALSE) {
             return false;
