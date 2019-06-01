@@ -10,6 +10,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://semovi.cdmx.gob.mx/themes/base/assets/favicon/apple-touch-icon.png?ver=IQp6a">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -38,15 +39,56 @@
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Dirección General de Registro Público de Transporte</a>
+                            <a href="#pageDireccion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                                Dirección General de Registro Público de Transporte
+                            </a>
+                            <ul class="collapse list-unstyled" id="pageDireccion">
+                                <li>
+                                    <a href="#">
+                                        Subdirección de Concentración y Vinculación de Bases de Datos del Registro del Transporte
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Subdirección de Archivo
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Subdirección de Enlace con REPUVE
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Subdirección de Información Registral
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Subdirección de Validación y Proceso Registral
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#pageReportes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-chart-area"></i>
                         Reportes
                     </a>
+                    <ul class="collapse list-unstyled" id="pageReportes">
+                        <li>
+                            <a href="#">
+                                Generación de Reportes
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Estadisticas
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <a href="<?php echo base_url('Inicio/index')?>">

@@ -28,15 +28,9 @@ class Inicio extends CI_Controller {
 
             $this->session->set_userdata($newData);
 
-            $this->load->view('prueba_vista');
+            $this->load->view('dashboard');
         } else {
             $this->load->view('login', array('mensaje' => 'El usuario no existe'));
         }
-    }
-
-    public function logout() {
-        //$this->unset_userdata('idusuario');
-        $this->session->sess_destroy();
-        redirect('login');
     }
 }

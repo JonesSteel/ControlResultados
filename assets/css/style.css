@@ -1,10 +1,12 @@
 /*
     DEMO STYLE
 */
-
-@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+font-face {
+    font-family: "Metropolis Medium";
+    src: url('../assets/fonts/Metropolis-Medium.otf') format('otf');
+}
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Metropolis', sans-serif;
     background: #fafafa;
 }
 
