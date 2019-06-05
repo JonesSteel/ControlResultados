@@ -26,46 +26,46 @@
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#">
+                <li>
+                    <a href="<?php echo base_url('Dashboard/index'); ?>" class="active">
                         <i class="fas fa-home"></i>
-                        Inicio
+                        <span class="slide">Inicio</span>
                     </a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-copy"></i>
-                        Estructura Interna
+                        <span>Estructura Interna</span>
                     </a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
                             <a href="#pageDireccion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                                Dirección General de Registro Público de Transporte
+                                <span>DGRPT</span>
                             </a>
                             <ul class="collapse list-unstyled" id="pageDireccion">
                                 <li>
-                                    <a href="#">
-                                        Subdirección de Concentración y Vinculación de Bases de Datos del Registro del Transporte
+                                    <a href="#" id="1" name="1">
+                                        <span>Subdirección de Concentración y Vinculación de Bases de Datos</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Subdirección de Archivo
+                                    <a href="#" id="2" name="2">
+                                        <span>Subdirección de Archivo</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Subdirección de Enlace con REPUVE
+                                    <a href="#" id="3" name="3">
+                                        <span>Subdirección de Enlace con REPUVE</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Subdirección de Información Registral
+                                    <a href="#" id="4" name="4">
+                                        <span>Subdirección de Información Registral</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                        Subdirección de Validación y Proceso Registral
+                                    <a href="#" id="5" name="5">
+                                        <span>Subdirección de Validación y Proceso Registral</span>
                                     </a>
                                 </li>
                             </ul>
@@ -75,17 +75,17 @@
                 <li>
                     <a href="#pageReportes" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="fas fa-chart-area"></i>
-                        Reportes
+                        <span>Reportes</span>
                     </a>
                     <ul class="collapse list-unstyled" id="pageReportes">
                         <li>
-                            <a href="#">
-                                Generación de Reportes
+                            <a href="#" id="6" name="6">
+                                <span>Generación de Reportes</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                Estadisticas
+                            <a href="#" id="7" name="7">
+                                <span>Estadisticas</span>
                             </a>
                         </li>
                     </ul>
@@ -93,7 +93,7 @@
                 <li>
                     <a href="<?php echo base_url('Inicio/index')?>">
                         <i class="fas fa-power-off"></i>
-                        Cerrar Sesión
+                        <span>Cerrar Sesión</span>
                     </a>
                 </li>
             </ul>
@@ -103,7 +103,7 @@
         <div id="content">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                    <button type="button" id="sidebarCollapse" class="btn btn-success">
                         <i class="fas fa-align-left"></i>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,19 +113,19 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <p id="time"></p>
+                                <span id="time"></span>
                             </li>
-
                         </ul>
                     </div>
                 </div>
             </nav>
-
-            <img src="<?php echo base_url('assets/img/Logo-cdmx.png');?>" class="img-fluid mx-auto d-block">
+            <div name="principal" id="principal">
+                <img src="<?php echo base_url('assets/img/Logo-cdmx.png');?>" class="img-fluid mx-auto d-block">
+            </div>
         </div>
     </div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
@@ -139,13 +139,67 @@
         });
     </script>
     <script type="text/javascript">
-        var timestamp = '<?=time();?>';
-        function updateTime() {
-            $('#time').html(Date(timestamp));
-            timestamp++;
-        }
-        $(function () {
-            setInterval(updateTime, 1000);
+       function getDateTime() {
+           var now = new Date();
+           var year = now.getFullYear();
+           var month = now.getMonth() + 1;
+           var day = now.getDate();
+           var hour = now.getHours();
+           var minute = now.getMinutes();
+           var second = now.getSeconds();
+
+           if (month.toString().length == 1) {
+               month = '0' + month;
+           }
+           if (day.toString().length == 1) {
+               day = '0' + day;
+           }
+           if (hour.toString().length == 1) {
+               hour = '0' + hour;
+           }
+           if (minute.toString().length == 1) {
+               minute = '0' + minute;
+           }
+           if (second.toString().length == 1) {
+               second = '0' + second;
+           }
+
+           var dateTime = day + '/' + month + '/' + year + ' '+ hour + ':' + minute + ':' + second;
+           return dateTime;
+       }
+
+       setInterval(function () {
+           currentTime = getDateTime();
+           document.getElementById('time').innerHTML = currentTime;
+       }, 1000);
+    </script>
+    <script type="text/javascript">
+        $("#1").click(function (event) {
+            $("#principal").load("<?php echo base_url('ConcentracionBaseDatos/index');?>");
+        });
+
+        $("#2").click(function (event) {
+            $("#principal").load("<?php echo base_url('ConcentracionBaseDatos/indexArchivo');?>");
+        });
+
+        $("#3").click(function (event) {
+            $("#principal").load("<?php echo base_url('ConcentracionBaseDatos/indexRepuve');?>");
+        });
+
+        $("#4").click(function (event) {
+            $("#principal").load("<?php echo base_url('ConcentracionBaseDatos/indexRegistral');?>");
+        });
+
+        $("#5").click(function (event) {
+            $("#principal").load("<?php echo base_url('ConcentracionBaseDatos/indexValidacion');?>");
+        });
+
+        $("#6").click(function (event) {
+            $("#principal").load("<?php echo base_url('Reportes/indexReportes');?>");
+        });
+
+        $("#7").click(function (event) {
+            $("#principal").load("<?php echo base_url('Reportes/indexEstadisticas');?>");
         });
     </script>
 </body>

@@ -31,15 +31,14 @@
             <div class="field-placeholder"><span>Introduce tu Contraseña</span></div>
         </div>
 
-        <?php
-            if (isset($mensaje)) {
-                echo "<center><span class='form-register' style='color: red';>". $mensaje ."</span></center>";
-            }
-        ?>
-
         <div class="form-button">
             <a href="<?php echo base_url('Usuarios/index'); ?>" class="form-register">Crear cuenta</a>
             <button type="submit" class="btn btn-success">Iniciar Sesión</button>
+            <?php
+            if (isset($mensaje)) {
+                echo "<center><span class='form-register' style='color: red';>". $mensaje ."</span></center>";
+            }
+            ?>
         </div>
     </form>
 </div>
