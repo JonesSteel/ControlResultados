@@ -16,22 +16,22 @@ class ConcentracionBaseDatos extends CI_Controller {
         $this->load->view('archivo');
     }
 
-    function show() {
+    public function show() {
         $data = $this->control_resultados_model->archivoList();
         echo json_encode($data);
     }
 
-    function save() {
+    public function save() {
         $data = $this->control_resultados_model->archivoSave();
         echo json_encode($data);
     }
 
-    function update() {
+    public function update() {
         $data = $this->control_resultados_model->archivoUpdate();
         echo json_encode($data);
     }
 
-    function delete() {
+    public function delete() {
         $data = $this->control_resultados_model->archivoDelete();
         echo json_encode($data);
     }

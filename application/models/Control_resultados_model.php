@@ -8,13 +8,13 @@ class Control_resultados_model extends CI_Model {
     }
 
     function archivoList() {
-        $r = $this->db->get('indicadores_archivo');
-        return $r->result();
+        $hasil = $this->db->get('indicadores_archivo');
+        return $hasil->result();
     }
 
     function archivoSave() {
         $data = array(
-            'solicitudes_expediente'    => $this->input->post('solicitudes_expediente'),
+            'solicitudes_expediente'     => $this->input->post('solicitudes_expediente'),
             'exp_cotejados_y_entregados' => $this->input->post('exp_cotejados_y_entregados'),
             'aceptadas'                  => $this->input->post('aceptadas'),
             'rechazadas'                 => $this->input->post('rechazadas'),

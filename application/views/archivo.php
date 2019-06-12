@@ -22,7 +22,7 @@
                 <th style="text-align: right">Acciones</th>
             </tr>
         </thead>
-        <tbody id="archivoRecords">
+        <tbody id="archivoRecords" style="text-align: center">
         </tbody>
     </table>
 
@@ -162,10 +162,21 @@
 
 <!-- Javascript Section -->
 <script type="text/javascript">
+	$(document).ready(function () {
+		archivoList();
+		var table = $('#archivoListing').dataTable({
+			"bPaginate": false,
+			"bInfo": false,
+			"bFilter": false,
+			"bLengthChange": false,
+			"pageLength": 5
+		});
+	});
+
     function archivoList() {
         $.ajax({
             type: 'ajax',
-            url: 'concentracionbasedatos/show',
+            url: '<?php echo base_url('ConcentracionBaseDatos/show'); ?>',
             async: false,
             dataType: 'json',
             success: function (data) {
@@ -180,7 +191,8 @@
                         '<td>'+ data[i].entrega_titulos_concesion +'</td>'+
                         '<td style="text-align: right">'+
                         '<a href="javascript:void(0);" class="btn btn-info btn-sm archivoEdit" data-id="'+ data[i].id_consecutivo +'" data-solicitudes="'+ data[i].solicitudes_expediente +'" data-expedientes="'+ data[i].exp_cotejados_y_entregados +'" data-aceptadas="'+ data[i].aceptadas +'" ' +
-                        'data-rechazadas="'+ data[i].rechazadas +'" data-entrega="'+ data[i].entrega_titulos_concesion +'">Editar</a>'+' ' + '<a href="javascript:void(0);" class="btn btn-danger archivoDelete" data-id="'+ data[i].id_consecutivo +'">Eliminar</a>' + '</td>' + '</tr>';
+                        'data-rechazadas="'+ data[i].rechazadas +'" data-entrega="'+ data[i].entrega_titulos_concesion +'">Editar</a>'+' ' +
+						'' + '<a href="javascript:void(0);" class="btn btn-danger archivoDelete" data-id="'+ data[i].id_consecutivo +'">Eliminar</a>' + '</td>' + '</tr>';
                 }
                 $('#archivoRecords').html(html);
             }
@@ -198,14 +210,14 @@
 
         $.ajax({
             type: "POST",
-            url: 'concentracionbasedatos/save',
+            url: '<?php echo base_url('ConcentracionBaseDatos/save'); ?>',
             dataType: 'JSON',
             data: {
-                solicitudes: archSolicitudes,
-                expedientes: archExpedientes,
+                solicitudes_expediente: archSolicitudes,
+                exp_cotejados_y_entregados: archExpedientes,
                 aceptadas: archAceptadas,
                 rechazadas: archRechazadas,
-                titulos: archTitulos
+                entrega_titulos_concesion: archTitulos
             },
             success: function (data) {
                 $('#solicitudes').val("");
@@ -220,6 +232,17 @@
 </script>
 
 <script type="text/javascript">
+	//Show edit modal
+	$('#archivoRecords').on('click', '.archivoEdit', function () {
+		$('#editArchivoModal').modal('show');
+		$("#edit_id").val($(this).data('id_consecutivo'));
+		$("#edit_solicitudes").val($(this).data('solicitudes_expediente'));
+		$("#edit_expedientes").val($(this).data('exp_cotejados_y_entregados'));
+		$("#edit_aceptadas").val($(this).data('aceptadas'));
+		$("#edit_rechazadas").val($(this).data('rechazadas'));
+		$("#edit_titulos").val($(this).data('entrega_titulos_concesion'));
+	});
+
     $('#editArchivoModal').on('submit', function () {
         var editId_consecutivo = $('#edit_id').val();
         var editSolicitudes    = $('#edit_solicitudes').val();
@@ -230,15 +253,15 @@
 
         $.ajax({
             type: "POST",
-            url: "concentracionbasedatos/update",
+            url: "<?php echo base_url('ConcentracionBaseDatos/update'); ?>",
             dataType: "JSON",
             data: {
-                id: editId_consecutivo,
-                solicitudes: editSolicitudes,
-                expedientes: editExpedientes,
+                id_consecutivo: editId_consecutivo,
+                solicitudes_expediente: editSolicitudes,
+                exp_cotejados_y_entregados: editExpedientes,
                 aceptadas: editAceptadas,
                 rechazadas: editRechazadas,
-                titulos: editTitulos
+                entrega_titulos_concesion: editTitulos
             },
             success: function (data) {
                 $("#edit_id").val("");
@@ -256,14 +279,21 @@
 </script>
 
 <script type="text/javascript">
+	// Show delete modal
+	$('#archivoRecords').on('click', '.archivoDelete', function () {
+		var deleteId = $(this).data('id_consecutivo');
+		$("#deleteArchivoModal").modal('show');
+		$("#delete_id").val(deleteId);
+	});
+
     $('#deleteArchivoForm').on('submit', function () {
         var deleteId = $("#delete_id").val();
 
         $.ajax({
             type: "POST",
-            url: "concentracionbasedatos/delete",
+            url: "<?php echo base_url('ConcentracionBaseDatos/delete'); ?>",
             dataType: "JSON",
-            data: {id: deleteId},
+            data: {id_consecutivo: deleteId},
             success: function (data) {
                 $("#" + deleteId).remove();
                 $("#delete_id").val("");
