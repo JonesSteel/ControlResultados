@@ -8,9 +8,10 @@
     <title>Dashboard - Subsecretaría de Transporte</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://semovi.cdmx.gob.mx/themes/base/assets/favicon/apple-touch-icon.png?ver=IQp6a">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.dataTables.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/dataTables.bootstrap4.css'); ?>">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -126,10 +127,14 @@
     </div>
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script src="<?php echo base_url('assets/js/jquery.dataTables.js'); ?>"></script>
+
+    <script src="<?php echo base_url('assets/js/dataTables.bootstrap4.js'); ?>"></script>
     <!-- Popper.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -202,5 +207,7 @@
             $("#principal").load("<?php echo base_url('Reportes/indexEstadisticas');?>");
         });
     </script>
+
+
 </body>
 </html>

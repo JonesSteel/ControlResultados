@@ -13,11 +13,27 @@ class ConcentracionBaseDatos extends CI_Controller {
     }
 
     public function indexArchivo() {
-        // Fetch data
-        $data['nombre_cargo'] = $this->control_resultados_model->getEstructuras();
-        $data['nombre_funcionario'] = $this->control_resultados_model->getNombres();
-        // Pass data to view
-        $this->load->view('archivo', $data);
+        $this->load->view('archivo');
+    }
+
+    function show() {
+        $data = $this->control_resultados_model->archivoList();
+        echo json_encode($data);
+    }
+
+    function save() {
+        $data = $this->control_resultados_model->archivoSave();
+        echo json_encode($data);
+    }
+
+    function update() {
+        $data = $this->control_resultados_model->archivoUpdate();
+        echo json_encode($data);
+    }
+
+    function delete() {
+        $data = $this->control_resultados_model->archivoDelete();
+        echo json_encode($data);
     }
 
     public function indexRepuve() {

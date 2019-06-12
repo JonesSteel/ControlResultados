@@ -195,6 +195,18 @@ a.article:hover {
     color: #fff !important;
 }
 
+.btn-success:focus {
+    color: #FFFFFF;
+}
+
+.btn-secondary {
+    background-color: #263238;
+    border-color: #263238;
+}
+
+.table thead th {
+    vertical-align: middle;
+}
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */

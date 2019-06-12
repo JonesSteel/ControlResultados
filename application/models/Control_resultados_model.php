@@ -7,25 +7,47 @@ class Control_resultados_model extends CI_Model {
         parent::__construct();
     }
 
-    function getEstructuras() {
-       $result = $this->db->select('id_estructura, nombre_cargo')->get('cat_estructura')->result_array();
-
-       $cargo = array();
-       foreach ($result as $r) {
-           $cargo[$r['id_estructura']] = $r['nombre_cargo'];
-       }
-       $cargo[''] = "Selecciona tu Cargo";
-       return $cargo;
+    function archivoList() {
+        $r = $this->db->get('indicadores_archivo');
+        return $r->result();
     }
 
-    function getNombres() {
-        $result = $this->db->select('id_estructura, nombre_funcionario')->get('cat_funcionarios')->result_array();
+    function archivoSave() {
+        $data = array(
+            'solicitudes_expediente'    => $this->input->post('solicitudes_expediente'),
+            'exp_cotejados_y_entregados' => $this->input->post('exp_cotejados_y_entregados'),
+            'aceptadas'                  => $this->input->post('aceptadas'),
+            'rechazadas'                 => $this->input->post('rechazadas'),
+            'entrega_titulos_concesion'  => $this->input->post('entrega_titulos_concesion')
+        );
 
-        $funcionario = array();
-        foreach ($result as $r) {
-            $funcionario[$r['id_estructura']] = $r['nombre_funcionario'];
-        }
-        $funcionario[''] = "Selecciona tu Nombre";
-        return $funcionario;
+        $result = $this->db->insert('indicadores_archivo', $data);
+        return $result;
+    }
+
+    function archivoUpdate() {
+        $id_consecutivo             = $this->input->post('id_consecutivo');
+        $solicitudes_expediente     = $this->input->post('solicitudes_expediente');
+        $exp_cotejados_y_entregados = $this->input->post('exp_cotejados_y_entregados');
+        $aceptadas                  = $this->input->post('aceptadas');
+        $rechazadas                 = $this->input->post('rechazadas');
+        $entrega_titulos_concesion  = $this->input->post('entrega_titulos_concesion');
+
+        $this->db->set('solicitudes_expediente', $solicitudes_expediente);
+        $this->db->set('exp_cotejados_y_entregados', $exp_cotejados_y_entregados);
+        $this->db->set('aceptadas', $aceptadas);
+        $this->db->set('rechazadas', $rechazadas);
+        $this->db->set('entrega_titulos_concesion', $entrega_titulos_concesion);
+
+        $this->db->where('id_consecutivo', $id_consecutivo);
+        $result = $this->db->update('indicadores_archivo');
+        return $result;
+    }
+
+    function archivoDelete() {
+        $id_consecutivo = $this->input->post('id_consecutivo');
+        $this->db->where('id_consecutivo', $id_consecutivo);
+        $result = $this->db->delete('indicadores_archivo');
+        return $result;
     }
 }
