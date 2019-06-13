@@ -189,10 +189,9 @@
                         '<td>'+ data[i].aceptadas +'</td>'+
                         '<td>'+ data[i].rechazadas +'</td>'+
                         '<td>'+ data[i].entrega_titulos_concesion +'</td>'+
-                        '<td style="text-align: right">'+
-                        '<a href="javascript:void(0);" class="btn btn-info btn-sm archivoEdit" data-id="'+ data[i].id_consecutivo +'" data-solicitudes="'+ data[i].solicitudes_expediente +'" data-expedientes="'+ data[i].exp_cotejados_y_entregados +'" data-aceptadas="'+ data[i].aceptadas +'" ' +
-                        'data-rechazadas="'+ data[i].rechazadas +'" data-entrega="'+ data[i].entrega_titulos_concesion +'">Editar</a>'+' ' +
-						'' + '<a href="javascript:void(0);" class="btn btn-danger archivoDelete" data-id="'+ data[i].id_consecutivo +'">Eliminar</a>' + '</td>' + '</tr>';
+                        '<td style="text-align: center">'+
+                            '<a href="javascript:void(0);" class="btn btn-success btn-sm archivoEdit" data-id_consecutivo="'+ data[i].id_consecutivo +'" data-solicitudes_expediente="'+ data[i].solicitudes_expediente +'" data-exp_cotejados_y_entregados="'+ data[i].exp_cotejados_y_entregados +'" data-aceptadas="'+ data[i].aceptadas +'" ' + 'data-rechazadas="'+ data[i].rechazadas +'" data-entrega_titulos_concesion="'+ data[i].entrega_titulos_concesion +'">Edit</a>'+' '+
+						    '<a href="javascript:void(0);" class="btn btn-secondary btn-sm archivoDelete" data-id_consecutivo="'+ data[i].id_consecutivo +'">Delete</a>' + '</td>' + '</tr>';
                 }
                 $('#archivoRecords').html(html);
             }
@@ -295,7 +294,7 @@
             dataType: "JSON",
             data: {id_consecutivo: deleteId},
             success: function (data) {
-                $("#" + deleteId).remove();
+                $('#' + deleteId).remove();
                 $("#delete_id").val("");
                 $("#deleteArchivoModal").modal('hide');
                 archivoList();
