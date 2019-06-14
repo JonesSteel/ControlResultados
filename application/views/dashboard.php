@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.dataTables.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/dataTables.bootstrap4.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datetimepicker.css'); ?>">
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -133,9 +134,12 @@
     <script src="<?php echo base_url('assets/js/jquery.dataTables.js'); ?>"></script>
 
     <script src="<?php echo base_url('assets/js/dataTables.bootstrap4.js'); ?>"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
 
+    <script src="<?php echo base_url('assets/js/bootstrap-datetimepicker.js'); ?>"></script>
+    <!-- Popper.JS -->
+    <script src="<?php echo base_url('assets/js/popper.min.js'); ?>"></script>
+
+    <script src="<?php echo base_url('assets/js/tooltip.min.js'); ?>"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -169,7 +173,18 @@
                second = '0' + second;
            }
 
-           var dateTime = day + '/' + month + '/' + year + ' '+ hour + ':' + minute + ':' + second;
+           var dateTime = day + '-' + month + '-' + year + ' '+ hour + ':' + minute + ':' + second;
+           $(".form_datetime").datetimepicker({
+               format: "yy-mm-dd",
+               pickTime: false,
+               autoclose: true
+           });
+
+           $(".edit_form_datetime").datetimepicker({
+               format: "yy-mm-dd",
+               pickTime: false,
+               autoclose: true
+           });
            return dateTime;
        }
 

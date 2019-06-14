@@ -13,7 +13,11 @@ class Control_resultados_model extends CI_Model {
     }
 
     function archivoSave() {
+
+        $date = $this->input->post('fecha');
+
         $data = array(
+            'fecha'                      => date('y-m-d', strtotime($date)),
             'solicitudes_expediente'     => $this->input->post('solicitudes_expediente'),
             'exp_cotejados_y_entregados' => $this->input->post('exp_cotejados_y_entregados'),
             'aceptadas'                  => $this->input->post('aceptadas'),
@@ -26,13 +30,18 @@ class Control_resultados_model extends CI_Model {
     }
 
     function archivoUpdate() {
+
+        $date = $this->input->post('fecha');
+
         $id_consecutivo             = $this->input->post('id_consecutivo');
+        $fecha                      = date('y-m-d', strtotime($date));
         $solicitudes_expediente     = $this->input->post('solicitudes_expediente');
         $exp_cotejados_y_entregados = $this->input->post('exp_cotejados_y_entregados');
         $aceptadas                  = $this->input->post('aceptadas');
         $rechazadas                 = $this->input->post('rechazadas');
         $entrega_titulos_concesion  = $this->input->post('entrega_titulos_concesion');
 
+        $this->db->set('fecha', $fecha);
         $this->db->set('solicitudes_expediente', $solicitudes_expediente);
         $this->db->set('exp_cotejados_y_entregados', $exp_cotejados_y_entregados);
         $this->db->set('aceptadas', $aceptadas);
