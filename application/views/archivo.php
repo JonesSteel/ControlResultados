@@ -102,7 +102,7 @@
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">Fecha</label>
                             <div class="col-md-10">
-                                <input type="text" name="edit_fecha" id="edit_fecha" class="form-control input-append date edit_form_datetime" required>
+                                <input type="text" name="edit_fecha" id="edit_fecha" class="form-control edit_form_datetime" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -174,7 +174,18 @@
 </div>
 
 <!-- Javascript Section -->
+<script type="text/javascript">
+    var dateLimit = moment().add(2, 'days');
+    var now = moment();
 
+    if (now > dateLimit) {
+        $(".archivoEdit").prop("disabled", true);
+        $(".archivoDelete").prop("disabled", true);
+        alert('La edición del reporte ya esta deshabilitada');
+    } else {
+        /*alert('Aun se puede editar el reporte');*/
+    }
+</script>
 
 <script type="text/javascript">
 	$(document).ready(function () {
@@ -265,7 +276,7 @@
 		$("#edit_titulos").val($(this).data('entrega_titulos_concesion'));
 	});
 
-    $('#editArchivoModal').on('submit', function () {
+    $('#editArchivoForm').on('submit', function () {
         var edit_id             = $('#edit_id').val();
         var edit_fecha          = $('#edit_fecha').val();
         var edit_solicitudes    = $('#edit_solicitudes').val();
@@ -313,7 +324,6 @@
 
     $('#deleteArchivoForm').on('submit', function () {
         var deleteId = $("#delete_id").val();
-
         $.ajax({
             type: "POST",
             url: "<?php echo base_url('ConcentracionBaseDatos/delete'); ?>",

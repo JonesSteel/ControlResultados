@@ -140,6 +140,8 @@
     <script src="<?php echo base_url('assets/js/popper.min.js'); ?>"></script>
 
     <script src="<?php echo base_url('assets/js/tooltip.min.js'); ?>"></script>
+
+    <script src="<?php echo base_url('assets/js/moment.js'); ?>"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -175,15 +177,25 @@
 
            var dateTime = day + '-' + month + '-' + year + ' '+ hour + ':' + minute + ':' + second;
            $(".form_datetime").datetimepicker({
-               format: "yy-mm-dd",
-               pickTime: false,
-               autoclose: true
+               format: "yyyy-mm-dd",
+               weekStart: 1,
+               todayBtn: true,
+               autoclose: true,
+               todayHighlight: true,
+               startView: 2,
+               minView: 2,
+               forceParse: 0
            });
 
            $(".edit_form_datetime").datetimepicker({
-               format: "yy-mm-dd",
-               pickTime: false,
-               autoclose: true
+               format: "yyyy-mm-dd",
+               weekStart: 1,
+               todayBtn: true,
+               autoclose: true,
+               todayHighlight: true,
+               startView: 2,
+               minView: 2,
+               forceParse: 0
            });
            return dateTime;
        }
