@@ -23,7 +23,7 @@
     <div class="wrapper">
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Subsecretaria de Transporte</h3>
+                <h3>Subsecretaría de Transporte</h3>
                 <strong>ST</strong>
             </div>
 
@@ -66,9 +66,21 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#" id="5" name="5">
+                                    <a href="#pageValidacion" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                                         <span>Subdirección de Validación y Proceso Registral</span>
                                     </a>
+                                    <ul class="collapse list-unstyled" id="pageValidacion">
+                                        <li>
+                                            <a href="#" id="5" name="5">
+                                                <span>Validación del Transporte</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" id="8" name="8">
+                                                <span>Módulo de Atención</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </li>
                             </ul>
                         </li>
@@ -207,7 +219,7 @@
     </script>
     <script type="text/javascript">
         $("#1").click(function (event) {
-            $("#principal").load("<?php echo base_url('ConcentracionBaseDatos/index');?>");
+            $("#principal").load("<?php echo base_url('BaseController/index');?>");
         });
 
         $("#2").click(function (event) {
@@ -215,7 +227,7 @@
         });
 
         $("#3").click(function (event) {
-            $("#principal").load("<?php echo base_url('ConcentracionBaseDatos/indexRepuve');?>");
+            $("#principal").load("<?php echo base_url('RepuveController/index');?>");
         });
 
         $("#4").click(function (event) {
@@ -223,7 +235,7 @@
         });
 
         $("#5").click(function (event) {
-            $("#principal").load("<?php echo base_url('ConcentracionBaseDatos/indexValidacion');?>");
+            $("#principal").load("<?php echo base_url('ValidacionController/index');?>");
         });
 
         $("#6").click(function (event) {
@@ -232,6 +244,10 @@
 
         $("#7").click(function (event) {
             $("#principal").load("<?php echo base_url('Reportes/indexEstadisticas');?>");
+        });
+
+        $("#8").click(function (event) {
+            $("#principal").load("<?php echo base_url('ValidacionController/indexAtencion');?>");
         });
     </script>
 

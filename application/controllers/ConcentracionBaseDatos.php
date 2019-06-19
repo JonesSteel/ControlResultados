@@ -8,10 +8,6 @@ class ConcentracionBaseDatos extends CI_Controller {
         $this->load->model('control_resultados_model');
     }
 
-    public function index() {
-        $this->load->view('base_datos');
-    }
-
     public function indexArchivo() {
         $this->load->view('archivo');
     }

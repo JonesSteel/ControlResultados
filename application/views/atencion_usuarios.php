@@ -1,41 +1,37 @@
 <body>
 <div class="container">
-    <h3 style="text-align: center">Subdirección de Enlace con REPUVE</h3>
+    <h3 style="text-align: center">Módulo de Atención a Usuarios en el Registro</h3>
     <br>
     <div class="float-right">
-        <a href="javascript:void(0);" class="btn btn-success" data-toggle="modal" data-target="#addRepuveModal"><span class="fa fa-plus"></span> Agregar</a>
+        <a href="javascript:void(0);" class="btn btn-success" data-toggle="modal" data-target="#addModuloModal"><span class="fa fa-plus"></span> Agregar</a>
     </div>
     <br>
     <br>
-    <table class="table table-bordered" id="repuveListing">
+    <table class="table table-bordered" id="moduloListing">
         <thead>
         <tr>
-            <th style="text-align: center" colspan="7">REPUVE</th>
+            <th style="text-align: center" colspan="7">Módulo de Atención del Registro</th>
+        </tr>
+        <tr>
+            <th style="text-align: center" colspan="3">Solicitudes de Corrección de Datos</th>
+            <th style="text-align: center" colspan="4">Atención a Usuarios Vulnerables</th>
         </tr>
         <tr>
             <th style="text-align: center">Fecha</th>
-            <th style="text-align: center">Inscripción de Vehiculos</th>
-            <th style="text-align: center">Actualización de Vehiculos</th>
-            <th style="text-align: center">Seguimiento para Actualización de Motocicleta</th>
-            <th style="text-align: center">Error en Sistema de Control Vehicular</th>
-            <th style="text-align: center">No presenta documentación y se reagenda</th>
-            <th style="text-align: center">Puestas a PGJ por Irregularidades</th>
-            <th style="text-align: center">Peritajes Realizados</th>
-            <th style="text-align: center">No se presento</th>
-            <th style="text-align: center">Peritajes Programados</th>
-            <th style="text-align: center">Solicitu de Peritajes en Sitio</th>
-            <th style="text-align: center">Citas Agendadas</th>
-            <th style="text-align: center">Atención Ciudadana</th>
-            <th style="text-align: center">Llamadas Atendidas</th>
+            <th style="text-align: center">Solicitudes Recibidas para Corrección de Datos</th>
+            <th style="text-align: center">Corrección de Datos Realizadas</th>
+            <th style="text-align: center">3a Edad</th>
+            <th style="text-align: center">Embarazadas con Niños</th>
+            <th style="text-align: center">Discapacidad</th>
             <th style="text-align: right">Acciones</th>
         </tr>
         </thead>
-        <tbody id="repuveRecords" style="text-align: center">
+        <tbody id="moduloRecords" style="text-align: center">
         </tbody>
     </table>
 
-    <form id="saveRepuveForm" method="post">
-        <div class="modal fade" id="addRepuveModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <form id="saveModuloForm" method="post">
+        <div class="modal fade" id="addModuloModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -45,7 +41,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <h6 style="text-align: center">REPUVE</h6>
+                        <h6 style="text-align: center">Solicitudes de Corrección de Datos</h6>
                         <div class="form-group row">
                             <label class="col-md-2 col-form-label">Fecha</label>
                             <div class="col-md-10">
@@ -53,39 +49,34 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Inscripción de Vehiculos</label>
+                            <label class="col-md-2 col-form-label">Solicitudes Recibidas para Corrección de Datos</label>
                             <div class="col-md-10">
-                                <input type="text" name="inscripcion" id="inscripcion" class="form-control" value="" required>
+                                <input type="text" name="correccion" id="correccion" class="form-control" value="" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Actualización de Vehiculos</label>
+                            <label class="col-md-2 col-form-label">Correcciones de Datos Realizadas</label>
                             <div class="col-md-10">
-                                <input type="text" name="actualizacion" id="actualizacion" class="form-control" required>
+                                <input type="text" name="c_realizadas" id="c_realizadas" class="form-control" required>
+                            </div>
+                        </div>
+                        <h6 style="text-align: center">Atención a Usuarios Vulnerables</h6>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label">3a Edad</label>
+                            <div class="col-md-10">
+                                <input type="text" name="edad" id="edad" class="form-control" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Seguimiento para Actualización de Motocicleta</label>
+                            <label class="col-md-2 col-form-label">Embarazadas con Niños</label>
                             <div class="col-md-10">
-                                <input type="text" name="motos" id="motos" class="form-control" required>
+                                <input type="text" name="pregnant" id="pregnant" class="form-control" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label">Error en Sistema de Control Vehicular</label>
+                            <label class="col-md-2 col-form-label">Discapacidad</label>
                             <div class="col-md-10">
-                                <input type="text" name="error" id="error" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label">No presenta Documentación y se Reagenda</label>
-                            <div class="col-md-10">
-                                <input type="text" name="no_documentacion" id="no_documentacion" class="form-control" required>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-md-2 col-form-label">No presenta Documentación y se Reagenda</label>
-                            <div class="col-md-10">
-                                <input type="text" name="no_documentacion" id="no_documentacion" class="form-control" required>
+                                <input type="text" name="discapacidad" id="discapacidad" class="form-control" required>
                             </div>
                         </div>
                     </div>
