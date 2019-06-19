@@ -23,7 +23,7 @@
             <th style="text-align: center">Peritajes Realizados</th>
             <th style="text-align: center">No se presento</th>
             <th style="text-align: center">Peritajes Programados</th>
-            <th style="text-align: center">Solicitu de Peritajes en Sitio</th>
+            <th style="text-align: center">Solicitud de Peritajes en Sitio</th>
             <th style="text-align: center">Citas Agendadas</th>
             <th style="text-align: center">Atención Ciudadana</th>
             <th style="text-align: center">Llamadas Atendidas</th>
@@ -83,11 +83,41 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-md-2 col-form-label">No presenta Documentación y se Reagenda</label>
+                            <label class="col-md-2 col-form-label">Puestas a PGJ por Irregularidades</label>
                             <div class="col-md-10">
-                                <input type="text" name="no_documentacion" id="no_documentacion" class="form-control" required>
+                                <input type="text" name="pgj" id="pgj" class="form-control" required>
                             </div>
                         </div>
+						<div class="form-group row">
+							<label class="col-md-2 col-form-label">Peritajes Realizados</label>
+							<div class="col-md-10">
+								<input type="text" name="peritaje" id="peritaje" class="form-control" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-md-2 col-form-label">No se Presento</label>
+							<div class="col-md-10">
+								<input type="text" name="no_presento" id="no_presento" class="form-control" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-md-2 col-form-label">Peritajes Programados</label>
+							<div class="col-md-10">
+								<input type="programados" name="programados" id="" class="form-control" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-md-2 col-form-label">Solicitud de Peritajes en Sitio</label>
+							<div class="col-md-10">
+								<input type="text" name="p_sitio" id="p_sitio" class="form-control" required>
+							</div>
+						</div>
+						<div class="form-group row">
+							<label class="col-md-2 col-form-label">Citas Agendadas</label>
+							<div class="col-md-10">
+								<input type="text" name="c_agendadas" id="c_agendadas" class="form-control" required>
+							</div>
+						</div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
