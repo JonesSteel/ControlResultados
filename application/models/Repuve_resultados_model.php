@@ -25,7 +25,8 @@ class Repuve_resultados_model extends CI_Model {
             'reagendado'             => $this->input->post('reagendado'),
             'irregularidades_pgj'    => $this->input->post('irregularidades_pgj'),
             'peritajes_realizados'   => $this->input->post('peritajes_realizados'),
-            'no presentado'          => $this->input->post('no_presentado'),
+            'no_presentado'          => $this->input->post('no_presentado'),
+            'peritaje_programado'    => $this->input->post('peritaje_programado'),
             'solicitud_peritaje'     => $this->input->post('solicitud_peritaje'),
             'citas_agendadas'        => $this->input->post('citas_agendadas'),
             'atencion_ciudadana'     => $this->input->post('atencion_ciudadana'),
@@ -50,6 +51,7 @@ class Repuve_resultados_model extends CI_Model {
         $irregularidades_pgj     = $this->input->post('irregularidades_pgj');
         $peritajes_realizados    = $this->input->post('peritajes_realizados');
         $no_presentado           = $this->input->post('no_presentado');
+        $peritaje_programado     = $this->input->post('peritaje_programado');
         $solicitud_peritaje      = $this->input->post('solicitud_peritajes');
         $citas_agendadas         = $this->input->post('citas_agendadas');
         $atencion_ciudadana      = $this->input->post('atencion_ciudadana');
@@ -64,6 +66,7 @@ class Repuve_resultados_model extends CI_Model {
         $this->db->set('irregularidades_pgj', $irregularidades_pgj);
         $this->db->set('peritajes_realizados', $peritajes_realizados);
         $this->db->set('no_presentado', $no_presentado);
+        $this->db->set('peritaje_programado', $peritaje_programado);
         $this->db->set('solicitud_peritaje', $solicitud_peritaje);
         $this->db->set('citas_agendadas', $citas_agendadas);
         $this->db->set('atencion_ciudadana', $atencion_ciudadana);
